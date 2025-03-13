@@ -3,7 +3,7 @@ from PIL import Image
 import qai_hub as hub
 
 # Load and preprocess the image
-image_path = "./images/lizzy2.jpg"  # Replace with the path to your image
+image_path = "./images/lizzy.jpg"  # Replace with the path to your image
 image = Image.open(image_path)  # Open the image using PIL
 
 # Resize the image to 224x224 (expected by WideResNet50)
