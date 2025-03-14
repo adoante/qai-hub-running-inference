@@ -3,18 +3,26 @@ import numpy as np
 import json
 from os import listdir
 
+# Load ImageNet class indexes
+with open('class_index.json', 'r') as json_file:
+	class_indexes = json.load(json_file)
+
+# Load Synset JSON from the file
+with open("synset.json", "r") as file:
+	synset_dict = json.load(file)
+
 # Path to outputs
-output_paths = [("./h5_data/" + img) for img in listdir("./h5_data")]
+h5_data_paths = [("./h5_data/imagenet_set_1_data/" + img) for img in listdir("./h5_data/imagenet_set_1_data")]
 
 # Will hold every outputs data
 data = dict()
 data_key = 1
 
-for output_file in output_paths:
+for h5_data in h5_data_paths:
 
-	with h5py.File(output_file, "r") as h5_file:
+	with h5py.File(h5_data, "r") as h5_file:
 		# Navigate to the dataset
-		dataset_path = "data/0/batch_1"
+		dataset_path = "data/0/batch_0"
 		
 		# Read the dataset
 		logits  = h5_file[dataset_path][()]  
@@ -26,19 +34,11 @@ for output_file in output_paths:
 	# Apply softmax to logits
 	probabilities = softmax(logits)
 
-	# Load ImageNet class indexes
-	with open('class_index.json', 'r') as json_file:
-		class_indexes = json.load(json_file)
-
 	# 5 results
 	top5_results = []
 
 	# Top 5 Predictions
 	top5_predictions = np.argsort(probabilities[0], axis=0)[-5:][::-1]
-
-	# Load Synset JSON from the file
-	with open("synset.json", "r") as file:
-		synset_dict = json.load(file)
 
 	# Construct Top 5 results list
 	for class_index in top5_predictions:
