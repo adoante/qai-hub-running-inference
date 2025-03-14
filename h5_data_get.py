@@ -19,7 +19,7 @@ def preprocess_image(image_path):
     return image
 
 # Paths to images
-image_paths  = [("./images/" + img) for img in listdir("./images")]
+image_paths  = [("./split_imagenet_folders/imagenet_set_1/" + img) for img in listdir("./split_imagenet_folders/imagenet_set_1")]
 
 # Run inference on each image 1 by 1
 image_num = 1
@@ -37,6 +37,6 @@ for image in image_paths:
     # Ensure the job is valid
     assert isinstance(inference_job, hub.InferenceJob)
 
-    output_data = inference_job.download_output_data(f"./h5_data/wideresnet50_{image_num}")
+    output_data = inference_job.download_output_data(f"./h5_data/imagenet_set_1_data/wideresnet50_{image_num}")
 
     image_num += 1

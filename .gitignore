@@ -3,3 +3,5 @@
 .venv
 ILSVRC2012_img_val
 .vscode
+split_imagenet_folders
+h5_data
