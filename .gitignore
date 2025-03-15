@@ -7,3 +7,4 @@ split_imagenet_folders
 h5_data
 accuracy_results.json
 val_results.json
+wideresnet50*
