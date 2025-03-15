@@ -12,14 +12,28 @@ with open("synset.json", "r") as file:
 	synset_dict = json.load(file)
 
 # Path to outputs
-h5_data_paths = [("./h5_data/imagenet_set_1_data/" + img) for img in listdir("./h5_data/imagenet_set_1_data")]
+h5_data_paths = []
+origin_dir = listdir("./h5_data/imagenet_set_1_data/")
+
+# Sorting the filenames based on the numerical part after '_'
+def extract_number(filename):
+    parts = filename.split('_')  # Split by '_'
+    if len(parts) > 1:  # Ensure there is a number part
+        num_part = ''.join(filter(str.isdigit, parts[-1]))  # Extract digits
+        return int(num_part) if num_part.isdigit() else float('inf')  # Convert to integer
+    return float('inf')  # Default if no number found
+
+origin_dir.sort(key=extract_number)  # Sort using the extracted numbers
+
+for image in origin_dir:
+	h5_data_paths.append("./h5_data/imagenet_set_1_data/" + image)
 
 # Will hold every outputs data
 data = dict()
 data_key = 1
 
 for h5_data in h5_data_paths:
-
+	print(f"Constructing: {h5_data} as JSON.")
 	with h5py.File(h5_data, "r") as h5_file:
 		# Navigate to the dataset
 		dataset_path = "data/0/batch_0"
