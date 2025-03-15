@@ -23,11 +23,10 @@ def construct_h5_dataset(image_paths, set_num):
 		processed_images.append(image)
 
 	print("Initializing Upload!")
-	data = dict(tensor_image = processed_images)
+	data = dict(image_tensor = processed_images)
 	dataset = hub.upload_dataset(data)
 	dataset.download(f"./datasets/dataset_{set_num}")
 
-# Paths to images
-image_paths = [f"./split_imagenet_folders/imagenet_set_1/{img}" for img in listdir("./split_imagenet_folders/imagenet_set_1")]
-
-construct_h5_dataset(image_paths, 1)
+for i in range(50):
+	image_paths = [f"./split_imagenet_folders/imagenet_set_{i + 1}/{img}" for img in listdir(f"./split_imagenet_folders/imagenet_set_{i + 1}")]
+	construct_h5_dataset(image_paths, i + 1)

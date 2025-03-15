@@ -1,6 +1,6 @@
 import h5py
 
-h5_data = "datasets\dataset_1.h5"
+h5_data = "h5_data\imagenet_set_1_data\wideresnet50_set_1.h5"
 
 def list_datasets(file_path):
     dataset_paths = []
