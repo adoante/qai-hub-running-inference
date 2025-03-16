@@ -1,0 +1,14 @@
+{
+	"wideresnet50": {
+		"tflite": [
+			"77.12",
+			"93.33"
+		]
+	},
+	"vit-snapdragon_8_elite": {
+		"tflite": [
+			"79.94",
+			"94.78"
+		]
+	}
+}
