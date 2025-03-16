@@ -8,4 +8,7 @@ h5_data
 accuracy_results.json
 val_results.json
 wideresnet50*
-vit-snapdragon_8_elite*
+vit*
+swin_tiny*
+swin_small*
+benchmarked_model_datasets
