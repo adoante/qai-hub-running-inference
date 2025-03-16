@@ -10,5 +10,17 @@
 			"79.94",
 			"94.78"
 		]
+	},
+	"swin_tiny-snapdragon_8_elite": {
+		"tflite": [
+			"79.18",
+			"94.5"
+		]
+	},
+	"swin_small-snapdragon_8_elite": {
+		"tflite": [
+			"81.98",
+			"95.88"
+		]
 	}
 }
