@@ -35,9 +35,13 @@ dataset_paths.sort(key=extract_number)  # Sort using the extracted numbers
 list1 = dataset_paths[::2] # odd
 list2 = dataset_paths[1::2] # even
 
+model_id = ""
+device_name = "Samsung Galaxy S24 (Family)"
+ai_model = ""
+
 # Create and start two threads, each processing one list
-thread1 = threading.Thread(target=lambda: [inference_dataset(file, "mm5jvkj6n", "Samsung Galaxy S24 (Family)", "vit-snapdragon_8_elite") for file in list1])
-thread2 = threading.Thread(target=lambda: [inference_dataset(file, "mm5jvkj6n", "Samsung Galaxy S24 (Family)", "vit-snapdragon_8_elite") for file in list2])
+thread1 = threading.Thread(target=lambda: [inference_dataset(file, model_id, device_name, ai_model) for file in list1])
+thread2 = threading.Thread(target=lambda: [inference_dataset(file, model_id, device_name, ai_model) for file in list2])
 
 thread1.start()
 thread2.start()
