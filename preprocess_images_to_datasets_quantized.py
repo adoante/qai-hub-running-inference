@@ -28,7 +28,7 @@ def construct_h5_dataset(image_paths, set_num):
 	print("Initializing Upload! 🔥🔥🔥")
 	data = dict(image_tensor = processed_images)
 	dataset = hub.upload_dataset(data)
-	dataset.download(f"./preprocess_image_datasets_quantized/dataset_{set_num}")
+	dataset.download(f"./preprocess_image_datasets_quantized/dataset_quantized_{set_num}")
 
 for i in range(50):
 	image_paths = [f"./split_imagenet_folders/imagenet_set_{i + 1}/{img}" for img in listdir(f"./split_imagenet_folders/imagenet_set_{i + 1}")]
