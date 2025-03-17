@@ -34,7 +34,12 @@ top1_accuracy = round((correct_top1 / total_images) * 100, 2)
 top5_accuracy = round((correct_top5 / total_images) * 100, 2)
 
 accuracy_results = {
-	"tflite": ["vit-snapdragon_8_elite", str(top1_accuracy), str(top5_accuracy)]
+	"squeezenet1_1": {
+		"tflite": [
+			top1_accuracy,
+			top5_accuracy
+		]
+	}
 }
 
 print(accuracy_results)
