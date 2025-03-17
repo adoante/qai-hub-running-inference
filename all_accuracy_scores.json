@@ -5,22 +5,28 @@
 			"93.33"
 		]
 	},
-	"vit-snapdragon_8_elite": {
+	"vit": {
 		"tflite": [
 			"79.94",
 			"94.78"
 		]
 	},
-	"swin_tiny-snapdragon_8_elite": {
+	"swin_tiny": {
 		"tflite": [
 			"79.18",
 			"94.5"
 		]
 	},
-	"swin_small-snapdragon_8_elite": {
+	"swin_small": {
 		"tflite": [
 			"81.98",
 			"95.88"
+		]
+	},
+	"swin_base": {
+		"tflite": [
+			"81.9",
+			"95.97"
 		]
 	}
 }
