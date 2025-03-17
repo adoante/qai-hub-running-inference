@@ -33,19 +33,6 @@ for i in range(0, total_images):
 top1_accuracy = round((correct_top1 / total_images) * 100, 2)
 top5_accuracy = round((correct_top5 / total_images) * 100, 2)
 
-accuracy_results = {
-	"squeezenet1_1": {
-		"tflite": [
-			top1_accuracy,
-			top5_accuracy
-		]
-	}
-}
+accuracy_results = (top1_accuracy, top5_accuracy, "Samsung Galaxy S24", "squeezenet1_1", "tflite")
 
-print(accuracy_results)
-
-
-with open("accuracy_results.json", "w") as file:
-	json.dump(accuracy_results, file)
-
-print("Accuracy Results saved to 'accuracy_results.json' 😀")
+print(str(accuracy_results) + " 😀")
