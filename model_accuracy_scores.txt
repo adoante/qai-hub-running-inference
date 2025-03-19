@@ -8,3 +8,4 @@
 (56.2, 78.47, 0.366, 21, 159, "Samsung Galaxy S2", "shufflenet_v2", "tflite")
 
 # Quantized
+
