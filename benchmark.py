@@ -5,11 +5,11 @@ from os import listdir
 
 # Benchmark wideresnet50_quantized
 
-model_id = "mnzrv83om"
+model_id = "mqy61ze7m"
 device_name = "Samsung Galaxy S24 (Family)"
-model_name = "wideresnet50_quantized"
+model_name = "squeezenet1_1_quantized"
 library_name = "tflite"
-results_dir = "benchmarked_model_datasets/wideresnet50_quantized_tflite_s24"
+results_dir = "benchmarked_model_datasets/squeezenet1_1_quantized_tflite_s24"
 
 ### Construct image datasets
 
