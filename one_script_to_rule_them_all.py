@@ -101,15 +101,13 @@ def process_results(result_paths, class_index_path, synset_path):
 		synset_dict = json.load(file)
 
 	for result in result_paths:
-		print(f"👩‍🔬 Processing result: {result} 👩‍🔬")
+		print(f"👩‍🔬Processing result: {result} 👩‍🔬")
 
 		with h5py.File(result, "r") as result_file:
 			batches = result_file["/data"]["0"]
 			result_batch_paths = [
 				"/data/0/batch_" + str(batch_num) for batch_num in range(len(batches))
 			]
-			
-			print(result_batch_paths)
 
 			for result_batch in result_batch_paths:
 				logits = result_file[result_batch][()]  
