@@ -24,15 +24,15 @@ model_name = "wideresnet50_quantized"
 library_name = "tflite"
 results_dir = "benchmarked_model_datasets/wideresnet50_quantized_tflite_s24"
 
+# for i in range(50):
+# 	image_paths = [f"./imagenet_50k/imagenet_set_{i + 1}/{img}" for img in listdir(f"./imagenet_50k/imagenet_set_{i + 1}")]
+# 	construct_datasets(image_paths, image_dataset_dir, i + 1, InputSpec.QUANTIZED)
+
 image_dataset_dir = "image_datasets_quantized"
 dataset_paths = [
 		f"./{image_dataset_dir}/" + image_dataset 
 		for image_dataset in listdir(f"./{image_dataset_dir}")
 	]
-
-for i in range(50):
-	image_paths = [f"./imagenet_50k/imagenet_set_{i + 1}/{img}" for img in listdir(f"./imagenet_50k/imagenet_set_{i + 1}")]
-	construct_datasets(image_paths, image_dataset_dir, i + 1, InputSpec.QUANTIZED)
 
 dataset_paths.sort(key=extract_number)
 
