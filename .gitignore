@@ -7,3 +7,5 @@
 *.tflite
 *.JPEG
 
+# specific folders
+imagenet_50k
