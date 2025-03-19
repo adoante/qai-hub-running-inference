@@ -1,14 +1,9 @@
+# hidden folders
+.venv
+.vscode
+
+# file types
 *.h5
 *.tflite
-.venv
-ILSVRC2012_img_val
-.vscode
-split_imagenet_folders
-h5_data
-accuracy_results.json
-val_results.json
-wideresnet50*
-vit*
-swin_tiny*
-swin_small*
-benchmarked_model_datasets
+*.JPEG
+
