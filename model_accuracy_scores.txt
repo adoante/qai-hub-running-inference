@@ -9,3 +9,4 @@
 
 # Quantized
 
+(77.07, 93.24, 'Samsung Galaxy S24', 'wideresnet50_quantized', 'tflite')
