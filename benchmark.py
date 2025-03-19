@@ -1,20 +1,7 @@
 import threading
 
-from one_script_to_rule_them_all import inference_dataset, process_results, calculate_accuracy, construct_datasets, InputSpec
+from one_script_to_rule_them_all import inference_dataset, process_results, calculate_accuracy, construct_datasets, InputSpec, extract_number
 from os import listdir
-
-###
-### I still don't get this
-###
-
-# Sorting the filenames based on the numerical part after '_'
-def extract_number(filename):
-	parts = filename.split('_')  # Split by '_'
-
-	if len(parts) > 1:  # Ensure there is a number part
-		num_part = ''.join(filter(str.isdigit, parts[-1]))  # Extract digits
-		return int(num_part) if num_part.isdigit() else float('inf')  # Convert to integer
-	return float('inf')  # Default if no number found
 
 # Benchmark wideresnet50_quantized
 

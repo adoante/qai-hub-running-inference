@@ -176,3 +176,16 @@ def calculate_accuracy(results_json, ground_truth_json, device_name, model_name,
 		accuracy_file.write(str(accuracy_results) + "\n")
 
 	print(str(accuracy_results) + " 😀")
+
+###
+### I still don't get this
+###
+
+# Sorting the filenames based on the numerical part after '_'
+def extract_number(filename):
+	parts = filename.split('_')  # Split by '_'
+
+	if len(parts) > 1:  # Ensure there is a number part
+		num_part = ''.join(filter(str.isdigit, parts[-1]))  # Extract digits
+		return int(num_part) if num_part.isdigit() else float('inf')  # Convert to integer
+	return float('inf')  # Default if no number found
