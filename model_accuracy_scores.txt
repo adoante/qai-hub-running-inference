@@ -12,3 +12,4 @@
 (77.07, 93.24, 'Samsung Galaxy S24', 'wideresnet50_quantized', 'tflite')
 (54.65, 77.99, 'Samsung Galaxy S24', 'squeezenet1_1_quantized', 'tflite')
 (55.82, 78.06, 'Samsung Galaxy S24', 'shufflenet_v2_quantized', 'tflite')
+(79.87, 94.78, 'Samsung Galaxy S24', 'resnext50_quantized', 'tflite')
