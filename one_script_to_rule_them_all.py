@@ -13,8 +13,12 @@ class InputSpec(Enum):
 	NORMAL = np.float32
 	QUANTIZED = np.uint8
 
+class FileType(Enum):
+	TFLITE = False
+	ONNX = True
+
 # Preprocess image based on AI model input spec
-def preprocess_image(image_path, input_spec):
+def preprocess_image(image_path, input_spec, file_type):
 	# Open image and account for grey scale
 	image = Image.open(image_path).convert("RGB")
 
@@ -23,21 +27,28 @@ def preprocess_image(image_path, input_spec):
 
 	# Convert to np.array with specific type
 	image = np.array(image).astype(input_spec.value)
-	if input_spec is InputSpec.NORMAL: image = image / 255.0  # Normalize to [0, 1]
+
+	# Normalize only if the input spec is NORMAL
+	if input_spec is InputSpec.NORMAL:
+		image = image / 255.0  # Normalize to [0, 1]
 	
+	# Rearrange dimensions: (H, W, C) → (C, H, W)
+	if file_type is FileType.ONNX:
+		image = np.transpose(image, (2, 0, 1))  # Shape: (3, 224, 224)
+
 	# All image classification models require a batch dimension of 1
 	image = np.expand_dims(image, axis=0)
 
 	return image
 
 # Create an h5 dataset and download
-def construct_datasets(image_paths, datasets_dir, dataset_num, input_spec):
+def construct_datasets(image_paths, datasets_dir, dataset_num, input_spec, file_type):
 	# Process each image given
 	processed_images = []
 
 	for image in image_paths:
 		print(f"🖼️ Preprocessing: {image[-28:]} 🖼️")
-		image = preprocess_image(image, input_spec)	
+		image = preprocess_image(image, input_spec, file_type)	
 		processed_images.append(image)
 
 	# Upload dataset to QAI Hub to create h5 file

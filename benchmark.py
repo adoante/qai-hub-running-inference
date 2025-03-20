@@ -1,25 +1,26 @@
 import threading
 
-from one_script_to_rule_them_all import inference_dataset, process_results, calculate_accuracy, construct_datasets, InputSpec, extract_number
+from one_script_to_rule_them_all import inference_dataset, process_results, calculate_accuracy, construct_datasets, InputSpec, extract_number, FileType
 from os import listdir
 
 # Benchmark wideresnet50_quantized
 
-model_id = "mqy61ze7m"
+model_id = "mqy66g49m"
 device_name = "Samsung Galaxy S24 (Family)"
-model_name = "squeezenet1_1_quantized"
-library_name = "tflite"
-results_dir = "benchmarked_model_datasets/squeezenet1_1_quantized_tflite_s24"
+model_name = "wideresnet50_quantized"
+library_name = "onnx"
+results_dir = "benchmarked_model_datasets/wideresnet50_quantized_onnx_s24"
 
 ### Construct image datasets
 
+image_dataset_dir = "image_datasets/image_datasets_onnx"
+
 # for i in range(50):
 # 	image_paths = [f"./imagenet_50k/imagenet_set_{i + 1}/{img}" for img in listdir(f"./imagenet_50k/imagenet_set_{i + 1}")]
-# 	construct_datasets(image_paths, image_dataset_dir, i + 1, InputSpec.QUANTIZED)
+# 	construct_datasets(image_paths, image_dataset_dir, i + 1, InputSpec.NORMAL, FileType.ONNX)
 
 ### Inference Image datasets
 
-image_dataset_dir = "image_datasets_quantized"
 dataset_paths = [
 		f"./{image_dataset_dir}/" + image_dataset 
 		for image_dataset in listdir(f"./{image_dataset_dir}")
